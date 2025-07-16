@@ -1,6 +1,10 @@
 {
-    "build": [
-      "composer install --no-dev --optimize-autoloader"
-    ]
+    "build": {
+      "env": {
+        "COMPOSER_ALLOW_SUPERUSER": "1"
+      },
+      "builder": "heroku/buildpacks:php"
+    },
+    "start": "php artisan serve --host=0.0.0.0 --port=8080"
   }
   
