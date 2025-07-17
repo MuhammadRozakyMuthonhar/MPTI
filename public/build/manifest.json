@@ -1,7 +1,12 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-grq4cPSg.css",
+    "file": "assets/app-fMJ8KwlI.css",
     "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/filament/admin/theme.css": {
+    "file": "assets/theme-HBN3uwsO.css",
+    "src": "resources/css/filament/admin/theme.css",
     "isEntry": true
   },
   "resources/js/app.js": {
