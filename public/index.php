@@ -5,18 +5,14 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
-// Maintenance mode check
-if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
-    require $maintenance;
+if (file_exists(__DIR__.'/../storage/framework/maintenance.php')) {
+    require __DIR__.'/../storage/framework/maintenance.php';
 }
 
-// Autoload dependencies
 require __DIR__.'/../vendor/autoload.php';
 
-// ✅ Bootstrap Laravel application (membuat $app)
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
-// Jalankan kernel Laravel
 $kernel = $app->make(Kernel::class);
 
 $response = tap($kernel->handle(
@@ -24,3 +20,9 @@ $response = tap($kernel->handle(
 ))->send();
 
 $kernel->terminate($request, $response);
+
+
+// Maintenance mode check
+#if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
+#    require $maintenance;
+#}
